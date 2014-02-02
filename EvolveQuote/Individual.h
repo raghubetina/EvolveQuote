@@ -12,6 +12,8 @@
 
 @property (nonatomic) NSString *genome;
 
+- (void)randomize;
+
 //- (NSString *)mutate;
 //- (int)score:(NSString *)target;
 
