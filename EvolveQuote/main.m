@@ -14,9 +14,11 @@ int main(int argc, const char * argv[])
 
     @autoreleasepool {
         
+        NSString *target = @"The ability to quote is a serviceable substitute for wit.";
+        
         Individual *individual = [[Individual alloc] init];
-        [individual randomize];
-        NSLog(@"%d", [individual score:@"The ability to quote is a serviceable substitute for wit."]);
+        [individual randomize:[target length]];
+        NSLog(@"%d", [individual score:target]);
         
         // create an array of random strings
         // create a scoring function
