@@ -16,8 +16,7 @@ int main(int argc, const char * argv[])
         
         Individual *individual = [[Individual alloc] init];
         [individual randomize];
-        NSLog(@"%@", individual.genome);
-        
+        NSLog(@"%d", [individual score:@"The ability to quote is a serviceable substitute for wit."]);
         
         // create an array of random strings
         // create a scoring function

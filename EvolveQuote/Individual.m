@@ -25,6 +25,20 @@
     self.genome = randomGenome;
 }
 
+- (int)score:(NSString *)target
+{
+    int score = 0;
+    
+    for (int i = 0; i < [target length]; i++) {
+        int targetChar = [target characterAtIndex:i];
+        int selfChar = [self.genome characterAtIndex:i];
+        int distance = abs(targetChar - selfChar);
+        score += distance;
+    }
+    
+    return score;
+}
+
 //(NSString *)mutate
 //{
 //
