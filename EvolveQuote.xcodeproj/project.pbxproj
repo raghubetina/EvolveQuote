@@ -10,6 +10,7 @@
 		75384A65189E93550099843F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75384A64189E93550099843F /* Foundation.framework */; };
 		75384A68189E93550099843F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75384A67189E93550099843F /* main.m */; };
 		75384A6C189E93550099843F /* EvolveQuote.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75384A6B189E93550099843F /* EvolveQuote.1 */; };
+		75384A74189E94130099843F /* Individual.m in Sources */ = {isa = PBXBuildFile; fileRef = 75384A73189E94130099843F /* Individual.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		75384A67189E93550099843F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		75384A6A189E93550099843F /* EvolveQuote-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EvolveQuote-Prefix.pch"; sourceTree = "<group>"; };
 		75384A6B189E93550099843F /* EvolveQuote.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = EvolveQuote.1; sourceTree = "<group>"; };
+		75384A72189E94130099843F /* Individual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Individual.h; sourceTree = "<group>"; };
+		75384A73189E94130099843F /* Individual.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Individual.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				75384A67189E93550099843F /* main.m */,
+				75384A72189E94130099843F /* Individual.h */,
+				75384A73189E94130099843F /* Individual.m */,
 				75384A6B189E93550099843F /* EvolveQuote.1 */,
 				75384A69189E93550099843F /* Supporting Files */,
 			);
@@ -139,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75384A74189E94130099843F /* Individual.m in Sources */,
 				75384A68189E93550099843F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
