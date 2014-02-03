@@ -12,9 +12,9 @@
 
 @property (nonatomic) NSMutableString *genome;
 
-- (void)randomize:(int)length;
-- (int)score:(NSString *)target;
-- (void)mutate:(float)geneMutationRate;
+- (void)randomizeWithLength:(int)length;
+- (int)scoreAgainstTarget:(NSString *)target;
+- (void)mutateGenomeAtRate:(float)geneMutationRate;
 - (id)copyWithZone: (NSZone *) zone;
 
 @end

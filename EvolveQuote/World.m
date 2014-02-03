@@ -19,7 +19,7 @@
     self.population = [[NSMutableArray alloc] initWithCapacity:self.populationSize];
     for (int i = 0; i < self.populationSize; i++) {
         Individual *individual = [[Individual alloc] init];
-        [individual randomize:[self.target length]];
+        [individual randomizeWithLength:[self.target length]];
         [self.population addObject:individual];
     }
     
@@ -30,7 +30,7 @@
         for (int i = 0; i < 100; i++) {
             double randomNumber = ((double)arc4random() / 0x100000000);
             if (randomNumber < self.individualMutationRate) {
-                [self.population[i] mutate:self.geneMutationRate];
+                [self.population[i] mutateGenomeAtRate:self.geneMutationRate];
             }
         }
         
@@ -39,10 +39,10 @@
             Individual *i1 = (Individual*)individual1;
             Individual *i2 = (Individual*)individual2;
             
-            if ([i1 score:self.target] > [i2 score:self.target]) {
+            if ([i1 scoreAgainstTarget:self.target] > [i2 scoreAgainstTarget:self.target]) {
                 return (NSComparisonResult)NSOrderedDescending;
             }
-            if ([i1 score:self.target] < [i2 score:self.target]) {
+            if ([i1 scoreAgainstTarget:self.target] < [i2 scoreAgainstTarget:self.target]) {
                 return (NSComparisonResult)NSOrderedAscending;
             }
             return (NSComparisonResult)NSOrderedSame;
@@ -54,7 +54,7 @@
         [self.population replaceObjectsInRange:NSMakeRange(self.populationSize - numReplacements, numReplacements)
                      withObjectsFromArray:fittest];
         
-        NSLog(@"Gen %d: %@ (%d)\n", self.generations, [(Individual *)[self.population objectAtIndex:0] genome], [self.population[0] score:self.target]);
+        NSLog(@"Gen %d: %@ (%d)\n", self.generations, [(Individual *)[self.population objectAtIndex:0] genome], [self.population[0] scoreAgainstTarget:self.target]);
         
         self.generations++;
     }

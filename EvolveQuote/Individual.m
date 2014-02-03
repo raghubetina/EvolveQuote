@@ -10,7 +10,7 @@
 
 @implementation Individual
 
-- (void)randomize:(int)length
+- (void)randomizeWithLength:(int)length
 {
     NSArray *alphabet = [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", @"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h", @"i", @"j", @"k", @"l", @"m", @"n", @"o", @"p", @"q", @"r", @"s", @"t", @"u", @"v", @"w", @"x", @"y", @"z", @",", @".", @"!", @"?", @"'", @" ", nil];
     
@@ -25,7 +25,7 @@
     self.genome = randomGenome;
 }
 
-- (int)score:(NSString *)target
+- (int)scoreAgainstTarget:(NSString *)target
 {
     int score = 0;
     
@@ -39,7 +39,7 @@
     return score;
 }
 
-- (void)mutate:(float)geneMutationRate
+- (void)mutateGenomeAtRate:(float)geneMutationRate
 {
     NSArray *alphabet = [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", @"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h", @"i", @"j", @"k", @"l", @"m", @"n", @"o", @"p", @"q", @"r", @"s", @"t", @"u", @"v", @"w", @"x", @"y", @"z", @",", @".", @"!", @"?", @"'", @" ", nil];
     
@@ -53,7 +53,7 @@
     }
 }
 
--(id) copyWithZone: (NSZone *) zone
+- (id)copyWithZone:(NSZone *)zone
 {
     Individual *individualCopy = [[Individual allocWithZone: zone] init];;
     [individualCopy setGenome:[NSMutableString stringWithString:self.genome]];
