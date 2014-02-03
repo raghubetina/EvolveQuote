@@ -10,12 +10,11 @@
 
 @interface Individual : NSObject
 
-@property (nonatomic) NSString *genome;
+@property (nonatomic) NSMutableString *genome;
 
 - (void)randomize:(int)length;
 - (int)score:(NSString *)target;
-
-//- (NSString *)mutate;
+- (void)mutate:(float)geneMutationRate;
 
 
 @end
