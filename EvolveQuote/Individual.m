@@ -17,7 +17,7 @@
     NSMutableString *randomGenome = [[NSMutableString alloc] initWithCapacity:length];
     
     for (int i = 0; i < 57; i++) {
-        NSString *randomLetter = [alphabet objectAtIndex:arc4random_uniform([alphabet count])];
+        NSString *randomLetter = [alphabet objectAtIndex:arc4random_uniform((int)[alphabet count])];
         [randomGenome insertString:randomLetter
                            atIndex:i];
     }
@@ -46,7 +46,7 @@
     for (int i = 0; i < 57; i++) {
         double randomNumber = ((double)arc4random() / 0x100000000);
         if (randomNumber < geneMutationRate) {
-            NSString *randomLetter = [alphabet objectAtIndex:arc4random_uniform([alphabet count])];
+            NSString *randomLetter = [alphabet objectAtIndex:arc4random_uniform((int)[alphabet count])];
             [self.genome replaceCharactersInRange:NSMakeRange(i, 1)
                                        withString:randomLetter];
         }

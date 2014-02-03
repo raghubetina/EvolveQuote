@@ -9,6 +9,18 @@
 #import "World.h"
 #import "Individual.h"
 
+@interface World ()
+
+@property (nonatomic) NSString *target;
+@property (nonatomic) float individualMutationRate;
+@property (nonatomic) float geneMutationRate;
+@property (nonatomic) int populationSize;
+@property (nonatomic) float deathRate;
+@property (nonatomic) NSMutableArray *population;
+@property (nonatomic) int generations;
+
+@end
+
 @implementation World
 
 - (instancetype)init
@@ -48,7 +60,7 @@
     self.population = [[NSMutableArray alloc] initWithCapacity:self.populationSize];
     for (int i = 0; i < self.populationSize; i++) {
         Individual *individual = [[Individual alloc] init];
-        [individual randomizeWithLength:[self.target length]];
+        [individual randomizeWithLength:(int)[self.target length]];
         [self.population addObject:individual];
     }
     
