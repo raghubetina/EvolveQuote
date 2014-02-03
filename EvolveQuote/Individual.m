@@ -55,10 +55,8 @@
 
 -(id) copyWithZone: (NSZone *) zone
 {
-    Individual *individualCopy = [[Individual allocWithZone: zone] init];
-    
-    [individualCopy setGenome:self.genome];
-    
+    Individual *individualCopy = [[Individual allocWithZone: zone] init];;
+    [individualCopy setGenome:[NSMutableString stringWithString:self.genome]];
     return individualCopy;
 }
 

@@ -32,53 +32,54 @@ int main(int argc, const char * argv[])
         
         int generation = 1;
         
-        while (1) {
+        while (![[population objectAtIndex:0] isEqualToString:target]) {
             
-        NSLog(@"Sorting\n");
-        // Sort by fitness
-        [population sortUsingComparator:^NSComparisonResult(id individual1, id individual2) {
-            Individual *i1 = (Individual*)individual1;
-            Individual *i2 = (Individual*)individual2;
+            NSLog(@"Sorting\n");
+            // Sort by fitness
+            [population sortUsingComparator:^NSComparisonResult(id individual1, id individual2) {
+                Individual *i1 = (Individual*)individual1;
+                Individual *i2 = (Individual*)individual2;
 
-            if ([i1 score:target] > [i2 score:target]) {
-                return (NSComparisonResult)NSOrderedDescending;
-            }
-            if ([i1 score:target] < [i2 score:target]) {
-                return (NSComparisonResult)NSOrderedAscending;
-            }
-            return (NSComparisonResult)NSOrderedSame;
-        }];
-            
-        for (int i = 0; i < 100; i++) {
-            NSLog(@"%d\n", [[population objectAtIndex:i] score:target]);
-        }
+                if ([i1 score:target] > [i2 score:target]) {
+                    return (NSComparisonResult)NSOrderedDescending;
+                }
+                if ([i1 score:target] < [i2 score:target]) {
+                    return (NSComparisonResult)NSOrderedAscending;
+                }
+                return (NSComparisonResult)NSOrderedSame;
+            }];
+                
+//            for (int i = 0; i < 100; i++) {
+//                NSLog(@"%d\n", [[population objectAtIndex:i] score:target]);
+//            }
 
-        NSLog(@"Culling\n");    
-        NSArray *fittest = [[NSArray alloc] initWithArray:[population subarrayWithRange:NSMakeRange(0, numReplacements)]
-                                                copyItems:YES];
-        [population replaceObjectsInRange:NSMakeRange(populationSize - numReplacements, numReplacements)
-                     withObjectsFromArray:fittest];
+            NSLog(@"Culling\n");
+            NSArray *fittest = [[NSArray alloc] initWithArray:[population subarrayWithRange:NSMakeRange(0, numReplacements)]
+                                                    copyItems:YES];
+            [population replaceObjectsInRange:NSMakeRange(populationSize - numReplacements, numReplacements)
+                         withObjectsFromArray:fittest];
+                
+//            for (int i = 0; i < 100; i++) {
+//                NSLog(@"%d\n", [[population objectAtIndex:i] score:target]);
+//            }
             
-        for (int i = 0; i < 100; i++) {
-            NSLog(@"%d\n", [[population objectAtIndex:i] score:target]);
-        }
-        
-        NSLog(@"Mutating\n");
-        // Mutate some individuals at random
-        for (int i = 0; i < 100; i++) {
-            double randomNumber = ((double)arc4random() / 0x100000000);
-            if (randomNumber < individualMutationRate) {
-                [population[i] mutate:geneMutationRate];
+            NSLog(@"Mutating\n");
+            // Mutate some individuals at random
+            for (int i = 0; i < 100; i++) {
+                double randomNumber = ((double)arc4random() / 0x100000000);
+                if (randomNumber < individualMutationRate) {
+                    [population[i] mutate:geneMutationRate];
+                }
             }
-        }
+                
+//            for (int i = 0; i < 100; i++) {
+//                NSLog(@"%d\n", [[population objectAtIndex:i] score:target]);
+//            }
             
-        for (int i = 0; i < 100; i++) {
-            NSLog(@"%d\n", [[population objectAtIndex:i] score:target]);
-        }
-        
-        NSLog(@"Gen %d: %@ (%d)\n", generation, [(Individual *)[population objectAtIndex:0] genome], [population[0] score:target]);
-         
-        generation++;
+            NSLog(@"Gen %d: %@ (%d)\n", generation, [(Individual *)[population objectAtIndex:0] genome], [population[0] score:target]);
+             
+            generation++;
+            
         }
         
     }
