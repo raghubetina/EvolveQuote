@@ -26,6 +26,13 @@
     self.generations = 1;
     
     while (![[[self.population objectAtIndex:0] genome] isEqualToString:self.target]) {
+        // NSLog(@"Mutating some individuals at random.\n");
+        for (int i = 0; i < 100; i++) {
+            double randomNumber = ((double)arc4random() / 0x100000000);
+            if (randomNumber < self.individualMutationRate) {
+                [self.population[i] mutate:self.geneMutationRate];
+            }
+        }
         
         // NSLog(@"Sorting by fitness.\n");
         [self.population sortUsingComparator:^NSComparisonResult(id individual1, id individual2) {
@@ -47,20 +54,10 @@
         [self.population replaceObjectsInRange:NSMakeRange(self.populationSize - numReplacements, numReplacements)
                      withObjectsFromArray:fittest];
         
-        // NSLog(@"Mutating some individuals at random.\n");
-        for (int i = 0; i < 100; i++) {
-            double randomNumber = ((double)arc4random() / 0x100000000);
-            if (randomNumber < self.individualMutationRate) {
-                [self.population[i] mutate:self.geneMutationRate];
-            }
-        }
-        
         NSLog(@"Gen %d: %@ (%d)\n", self.generations, [(Individual *)[self.population objectAtIndex:0] genome], [self.population[0] score:self.target]);
         
         self.generations++;
-        
     }
-
 }
 
 @end
