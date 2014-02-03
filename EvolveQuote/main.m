@@ -14,13 +14,12 @@ int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-
-        World *world = [[World alloc] init];
-        world.target = @"The ability to quote is a serviceable substitute for wit.";
-        world.individualMutationRate = 0.1;
-        world.geneMutationRate = 0.05;
-        world.populationSize = 100;
-        world.deathRate = 0.40;
+        NSString *target = @"The ability to quote is a serviceable substitute for wit.";
+        World *world = [[World alloc] initWithTarget:target
+                              individualMutationRate:0.1
+                                    geneMutationRate:0.05
+                                      populationSize:100
+                                           deathRate:0.25];
         [world evolve];
         NSLog(@"It took %d generations to converge.", world.generations);
         

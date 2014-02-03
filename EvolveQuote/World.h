@@ -18,6 +18,14 @@
 @property (nonatomic) NSMutableArray *population;
 @property (nonatomic) int generations;
 
+- (instancetype)initWithTarget:(NSString *)target
+        individualMutationRate:(float)individualMutationRate
+              geneMutationRate:(float)geneMutationRate
+                populationSize:(int)populationSize
+                     deathRate:(float)deathRate;
+
+
+
 - (void) evolve;
 
 @end

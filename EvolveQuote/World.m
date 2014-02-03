@@ -11,6 +11,26 @@
 
 @implementation World
 
+- (instancetype)initWithTarget:(NSString *)target
+        individualMutationRate:(float)individualMutationRate
+              geneMutationRate:(float)geneMutationRate
+                populationSize:(int)populationSize
+                     deathRate:(float)deathRate
+{
+    self = [super init];
+    
+    if (self) {
+        _target = [target copy];
+        _individualMutationRate = individualMutationRate;
+        _geneMutationRate = geneMutationRate;
+        _populationSize = populationSize;
+        _deathRate = deathRate;
+    }
+    
+    return self;
+}
+
+
 - (void)evolve
 {
     int numReplacements = self.populationSize * self.deathRate;
