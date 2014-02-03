@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Individual : NSObject
+@interface Individual : NSObject <NSCopying>
 
 @property (nonatomic) NSMutableString *genome;
 
 - (void)randomize:(int)length;
 - (int)score:(NSString *)target;
 - (void)mutate:(float)geneMutationRate;
-
+- (id)copyWithZone: (NSZone *) zone;
 
 @end
