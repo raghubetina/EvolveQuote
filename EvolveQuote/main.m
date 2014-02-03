@@ -32,10 +32,9 @@ int main(int argc, const char * argv[])
         
         int generation = 1;
         
-        while (![[population objectAtIndex:0] isEqualToString:target]) {
+        while (![[[population objectAtIndex:0] genome] isEqualToString:target]) {
             
-            NSLog(@"Sorting\n");
-            // Sort by fitness
+            // NSLog(@"Sorting by fitness.\n");
             [population sortUsingComparator:^NSComparisonResult(id individual1, id individual2) {
                 Individual *i1 = (Individual*)individual1;
                 Individual *i2 = (Individual*)individual2;
@@ -53,7 +52,7 @@ int main(int argc, const char * argv[])
 //                NSLog(@"%d\n", [[population objectAtIndex:i] score:target]);
 //            }
 
-            NSLog(@"Culling\n");
+            // NSLog(@"Culling weakest; replacing with fittest.\n");
             NSArray *fittest = [[NSArray alloc] initWithArray:[population subarrayWithRange:NSMakeRange(0, numReplacements)]
                                                     copyItems:YES];
             [population replaceObjectsInRange:NSMakeRange(populationSize - numReplacements, numReplacements)
@@ -63,8 +62,7 @@ int main(int argc, const char * argv[])
 //                NSLog(@"%d\n", [[population objectAtIndex:i] score:target]);
 //            }
             
-            NSLog(@"Mutating\n");
-            // Mutate some individuals at random
+            // NSLog(@"Mutating some individuals at random.\n");
             for (int i = 0; i < 100; i++) {
                 double randomNumber = ((double)arc4random() / 0x100000000);
                 if (randomNumber < individualMutationRate) {
