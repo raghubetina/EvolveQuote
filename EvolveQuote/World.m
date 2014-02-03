@@ -11,6 +11,16 @@
 
 @implementation World
 
+- (instancetype)init
+{
+    NSString *target = @"The ability to quote is a serviceable substitute for wit.";
+    return [self initWithTarget:target
+         individualMutationRate:0.1
+               geneMutationRate:0.05
+                 populationSize:100
+                      deathRate:0.25];
+}
+
 - (instancetype)initWithTarget:(NSString *)target
         individualMutationRate:(float)individualMutationRate
               geneMutationRate:(float)geneMutationRate
@@ -29,7 +39,6 @@
     
     return self;
 }
-
 
 - (void)evolve
 {
