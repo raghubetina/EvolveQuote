@@ -59,8 +59,7 @@
     // NSLog(@"Creating population of random individuals.\n");
     self.population = [[NSMutableArray alloc] initWithCapacity:self.populationSize];
     for (int i = 0; i < self.populationSize; i++) {
-        Individual *individual = [[Individual alloc] init];
-        [individual randomizeWithLength:(int)[self.target length]];
+        Individual *individual = [[Individual alloc] initWithLength:(int)[self.target length]];
         [self.population addObject:individual];
     }
     

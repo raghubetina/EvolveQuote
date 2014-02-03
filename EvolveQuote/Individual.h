@@ -10,9 +10,9 @@
 
 @interface Individual : NSObject <NSCopying>
 
-@property (nonatomic) NSMutableString *genome;
+@property (nonatomic, readonly) NSMutableString *genome;
 
-- (void)randomizeWithLength:(int)length;
+- (instancetype)initWithLength:(int)length;
 - (int)scoreAgainstTarget:(NSString *)target;
 - (void)mutateGenomeAtRate:(float)geneMutationRate;
 - (id)copyWithZone: (NSZone *) zone;
