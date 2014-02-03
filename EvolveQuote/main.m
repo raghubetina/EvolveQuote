@@ -16,9 +16,9 @@ int main(int argc, const char * argv[])
         
         NSString *target = @"The ability to quote is a serviceable substitute for wit.";
         float individualMutationRate = 0.1;
-        float geneMutationRate = 0.20;
+        float geneMutationRate = 0.05;
         int populationSize = 100;
-        float deathRate = 0.10;
+        float deathRate = 0.40;
         
         int numReplacements = (int)populationSize * deathRate;
         
