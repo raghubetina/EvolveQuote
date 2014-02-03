@@ -18,8 +18,6 @@
                 populationSize:(int)populationSize
                      deathRate:(float)deathRate;
 
-
-
 - (void) evolve;
 
 @end

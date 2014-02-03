@@ -63,9 +63,11 @@
         [self.population addObject:individual];
     }
     
-    self.generations = 1;
+    self.generations = 0;
     
     while (![[[self.population objectAtIndex:0] genome] isEqualToString:self.target]) {
+        self.generations++;
+        
         // NSLog(@"Mutating some individuals at random.\n");
         for (int i = 0; i < 100; i++) {
             double randomNumber = ((double)arc4random() / 0x100000000);
@@ -95,8 +97,6 @@
                      withObjectsFromArray:fittest];
         
         NSLog(@"Gen %d: %@ (%d)\n", self.generations, [(Individual *)[self.population objectAtIndex:0] genome], [self.population[0] scoreAgainstTarget:self.target]);
-        
-        self.generations++;
     }
 }
 
