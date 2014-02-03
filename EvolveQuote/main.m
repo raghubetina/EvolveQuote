@@ -22,7 +22,7 @@ int main(int argc, const char * argv[])
         
         int numReplacements = (int)populationSize * deathRate;
         
-        // Create population of randomized individuals
+        // NSLog(@"Creating population of random individuals.\n");
         NSMutableArray *population = [[NSMutableArray alloc] initWithCapacity:populationSize];
         for (int i = 0; i < populationSize; i++) {
             Individual *individual = [[Individual alloc] init];
@@ -47,20 +47,12 @@ int main(int argc, const char * argv[])
                 }
                 return (NSComparisonResult)NSOrderedSame;
             }];
-                
-//            for (int i = 0; i < 100; i++) {
-//                NSLog(@"%d\n", [[population objectAtIndex:i] score:target]);
-//            }
 
             // NSLog(@"Culling weakest; replacing with fittest.\n");
             NSArray *fittest = [[NSArray alloc] initWithArray:[population subarrayWithRange:NSMakeRange(0, numReplacements)]
                                                     copyItems:YES];
             [population replaceObjectsInRange:NSMakeRange(populationSize - numReplacements, numReplacements)
                          withObjectsFromArray:fittest];
-                
-//            for (int i = 0; i < 100; i++) {
-//                NSLog(@"%d\n", [[population objectAtIndex:i] score:target]);
-//            }
             
             // NSLog(@"Mutating some individuals at random.\n");
             for (int i = 0; i < 100; i++) {
@@ -69,10 +61,6 @@ int main(int argc, const char * argv[])
                     [population[i] mutate:geneMutationRate];
                 }
             }
-                
-//            for (int i = 0; i < 100; i++) {
-//                NSLog(@"%d\n", [[population objectAtIndex:i] score:target]);
-//            }
             
             NSLog(@"Gen %d: %@ (%d)\n", generation, [(Individual *)[population objectAtIndex:0] genome], [population[0] score:target]);
              
