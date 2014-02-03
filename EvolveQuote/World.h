@@ -10,13 +10,7 @@
 
 @interface World : NSObject
 
-@property (nonatomic) NSString *target;
-@property (nonatomic) float individualMutationRate;
-@property (nonatomic) float geneMutationRate;
-@property (nonatomic) int populationSize;
-@property (nonatomic) float deathRate;
-@property (nonatomic) NSMutableArray *population;
-@property (nonatomic) int generations;
+@property (nonatomic, readonly) int generations;
 
 - (instancetype)initWithTarget:(NSString *)target
         individualMutationRate:(float)individualMutationRate
