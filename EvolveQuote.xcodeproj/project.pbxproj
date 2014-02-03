@@ -11,6 +11,7 @@
 		75384A68189E93550099843F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75384A67189E93550099843F /* main.m */; };
 		75384A6C189E93550099843F /* EvolveQuote.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75384A6B189E93550099843F /* EvolveQuote.1 */; };
 		75384A74189E94130099843F /* Individual.m in Sources */ = {isa = PBXBuildFile; fileRef = 75384A73189E94130099843F /* Individual.m */; };
+		75932E5A189F70C6006BCB9B /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 75932E59189F70C6006BCB9B /* World.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		75384A6B189E93550099843F /* EvolveQuote.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = EvolveQuote.1; sourceTree = "<group>"; };
 		75384A72189E94130099843F /* Individual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Individual.h; sourceTree = "<group>"; };
 		75384A73189E94130099843F /* Individual.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Individual.m; sourceTree = "<group>"; };
+		75932E58189F70C6006BCB9B /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		75932E59189F70C6006BCB9B /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				75384A67189E93550099843F /* main.m */,
+				75932E58189F70C6006BCB9B /* World.h */,
+				75932E59189F70C6006BCB9B /* World.m */,
 				75384A72189E94130099843F /* Individual.h */,
 				75384A73189E94130099843F /* Individual.m */,
 				75384A6B189E93550099843F /* EvolveQuote.1 */,
@@ -144,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75932E5A189F70C6006BCB9B /* World.m in Sources */,
 				75384A74189E94130099843F /* Individual.m in Sources */,
 				75384A68189E93550099843F /* main.m in Sources */,
 			);
@@ -257,6 +263,7 @@
 				75384A71189E93550099843F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
