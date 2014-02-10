@@ -13,9 +13,7 @@
 int main(int argc, const char * argv[])
 {
     @autoreleasepool {
-//        World *world = [[World alloc] init];
-        NSString *target = @"The ability to quote is a serviceable substitute for wit.";
-        World *world = [[World alloc] initWithTarget:target
+        World *world = [[World alloc] initWithTarget:@"The ability to quote is a serviceable substitute for wit."
                               individualMutationRate:0.1
                                     geneMutationRate:0.05
                                       populationSize:100
