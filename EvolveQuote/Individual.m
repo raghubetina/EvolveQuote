@@ -56,7 +56,7 @@
 {
     NSArray *alphabet = [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", @"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h", @"i", @"j", @"k", @"l", @"m", @"n", @"o", @"p", @"q", @"r", @"s", @"t", @"u", @"v", @"w", @"x", @"y", @"z", @",", @".", @"!", @"?", @"'", @" ", nil];
     
-    for (int i = 0; i < 57; i++) {
+    for (int i = 0; i < [self.genome length]; i++) {
         double randomNumber = ((double)arc4random() / 0x100000000);
         if (randomNumber < geneMutationRate) {
             NSString *randomLetter = [alphabet objectAtIndex:arc4random_uniform((int)[alphabet count])];
