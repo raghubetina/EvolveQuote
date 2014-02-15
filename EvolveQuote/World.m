@@ -69,7 +69,7 @@
         self.generations++;
         
         // NSLog(@"Mutating some individuals at random.\n");
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < self.populationSize; i++) {
             double randomNumber = ((double)arc4random() / 0x100000000);
             if (randomNumber < self.individualMutationRate) {
                 [self.population[i] mutateGenomeAtRate:self.geneMutationRate];
